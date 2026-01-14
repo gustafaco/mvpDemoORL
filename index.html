@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso ORL Medellín 2026</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Contenedor principal: simula un móvil centrado -->
+    <div class="mobile-frame">
+        
+        <!-- Barra superior (header) -->
+        <header class="app-header" id="appHeader">
+            <div class="header-back" id="headerBack">
+                <button class="btn-back" onclick="router.back()">←</button>
+            </div>
+            <div class="header-title" id="headerTitle">Curso ORL</div>
+            <div class="header-actions" id="headerActions">
+                <button class="btn-icon" onclick="router.navigate('profile')">👤</button>
+            </div>
+        </header>
+
+        <!-- Contenido dinámico (pantallas) -->
+        <main class="app-content" id="appContent">
+            <!-- Las vistas se renderizan dinámicamente aquí -->
+        </main>
+
+        <!-- Barra de navegación inferior (tabs) -->
+        <nav class="app-tabs" id="appTabs">
+            <button class="tab-item" data-route="home" onclick="router.navigate('home')">
+                <span class="tab-icon">🏠</span>
+                <span class="tab-label">Inicio</span>
+            </button>
+            <button class="tab-item" data-route="agenda" onclick="router.navigate('agenda')">
+                <span class="tab-icon">📅</span>
+                <span class="tab-label">Agenda</span>
+            </button>
+            <button class="tab-item" data-route="speakers" onclick="router.navigate('speakers')">
+                <span class="tab-icon">👨‍⚕️</span>
+                <span class="tab-label">Profesores</span>
+            </button>
+            <button class="tab-item" data-route="my" onclick="router.navigate('my')">
+                <span class="tab-icon">⭐</span>
+                <span class="tab-label">Mi Agenda</span>
+            </button>
+            <button class="tab-item" data-route="info" onclick="router.navigate('info')">
+                <span class="tab-icon">ℹ️</span>
+                <span class="tab-label">Info</span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- Panel lateral opcional (información del demo) -->
+    <aside class="demo-panel">
+        <h3>🎯 Demo MVP - Evento Médico</h3>
+        <p><strong>Curso de Otorrinolaringología</strong></p>
+        <p>Esta es una demostración interactiva de una app móvil para eventos médicos.</p>
+        <hr>
+        <h4>Características implementadas:</h4>
+        <ul>
+            <li>✅ Login con roles</li>
+            <li>✅ Agenda interactiva</li>
+            <li>✅ Gestión de "Mi Agenda"</li>
+            <li>✅ Perfiles de profesores</li>
+            <li>✅ Patrocinadores</li>
+            <li>✅ Certificado (mock)</li>
+            <li>✅ Router interno SPA</li>
+            <li>✅ Persistencia localStorage</li>
+        </ul>
+        <hr>
+        <p><small>💡 Los datos son editables en <code>app.js</code></small></p>
+        <p><small>🎨 Los colores se pueden cambiar en <code>styles.css</code></small></p>
+    </aside>
+
+    <!-- Script principal -->
+    <script src="app.js"></script>
+</body>
+</html>
