@@ -1,27 +1,111 @@
-# 🏥 MVP Demo - Evento Médico ORL
+# 💊 RINOMED 2026 - App Móvil del Congreso
 
-Demo MVP de una aplicación web móvil para el **Curso Internacional de Otorrinolaringología** en Medellín, Colombia.
+Demo MVP de la aplicación web móvil para el **Congreso Internacional de Rinología y Cirugía Plástica Facial RINOMED 2026** en Medellín, Colombia.
 
 ## 📋 Descripción
 
-Esta es una aplicación web demo (MVP) que simula una app móvil para eventos médicos. Desarrollada con **HTML, CSS y JavaScript puro** (sin frameworks ni librerías externas), funciona directamente abriendo el archivo `index.html` en cualquier navegador moderno.
+Aplicación web progresiva (PWA) que simula la app móvil oficial del congreso RINOMED 2026. Desarrollada con **HTML, CSS y JavaScript puro** + **Font Awesome 6.5**, optimizada para experiencia móvil con diseño profesional de tema oscuro con acentos magenta.
+
+## 🎯 Evento
+
+- **Nombre**: RINOMED 2026 - Congreso Internacional de Rinología y Cirugía Plástica Facial
+- **Fechas**: 17-18 de Abril, 2026
+- **Sede**: Centro de Eventos El Tesoro
+- **Ubicación**: Medellín, Colombia
+- **Dirección**: Carrera 25A # 1A Sur - 45, Piso 5
+- **Website**: https://rinomedellin.com/
+- **Contacto**: +57 320 806 5201
 
 ## ✨ Características Implementadas
 
+- ✅ **Tema oscuro profesional**: Diseño con paleta magenta (#C07AB8) sobre fondo negro
+- ✅ **Iconografía Font Awesome**: Iconos profesionales médicos y de UI
 - ✅ **Login con roles**: Asistente, Profesor, Staff, Admin
-- ✅ **Home**: Resumen del evento con accesos rápidos
-- ✅ **Agenda interactiva**: Filtrado por día y búsqueda de sesiones
+- ✅ **Home**: Resumen del evento con accesos rápidos con iconos FA
+- ✅ **Agenda completa**: 23 sesiones distribuidas en 2 días con horarios reales
 - ✅ **Mi Agenda**: Gestión personalizada de sesiones favoritas
-- ✅ **Profesores**: Perfiles detallados con biografías y sesiones
-- ✅ **Patrocinadores**: Listado por tiers (Gold/Silver/Bronze)
-- ✅ **Certificado**: Vista previa (mock) del certificado de asistencia
-- ✅ **Información**: Logística del evento (sede, contacto, mapa)
+- ✅ **Profesores**: 7 conferencistas internacionales con perfiles detallados
+- ✅ **Patrocinadores**: SANOFI, QLUB, GlaxoSmithKline (Gold/Bronze)
+- ✅ **Certificado**: Vista previa del certificado de asistencia
+- ✅ **Información**: Logística completa del evento
 - ✅ **Perfil de usuario**: Estadísticas y gestión de cuenta
-- ✅ **Router SPA**: Navegación interna sin recargar la página
-- ✅ **Persistencia**: localStorage para guardar usuario y sesiones favoritas
-- ✅ **Diseño responsive**: Simulación de móvil en desktop, full screen en móviles
+- ✅ **Router SPA**: Navegación fluida sin recargas
+- ✅ **Persistencia**: localStorage para sesiones favoritas
+- ✅ **Logo vectorial**: SVG del logo RINOMED
+- ✅ **Diseño responsive**: Simulación móvil en desktop, fullscreen en móviles
 
-## 🚀 Cómo Ejecutar
+## 🎨 Diseño Visual
+
+### Paleta de Colores RINOMED 2026
+```css
+--primary-color: #C07AB8;      /* Rosa/Magenta principal */
+--primary-dark: #a05696;        /* Púrpura oscuro */
+--primary-light: #d59bcf;       /* Rosa claro */
+--secondary-color: #8B5A9E;     /* Púrpura secundario */
+--accent-color: #E94B8A;        /* Rosa vibrante */
+--bg-primary: #1C1C1C;          /* Negro fondo */
+--bg-secondary: #2A2A2A;        /* Gris oscuro */
+--text-primary: #FFFFFF;         /* Texto blanco */
+```
+
+### Iconografía Font Awesome
+- 🏠 `fa-home` - Inicio
+- 📅 `fa-calendar-alt` - Agenda
+- 👨‍⚕️ `fa-user-md` - Profesores
+- ⭐ `fa-star` - Favoritos
+- 🎓 `fa-certificate` - Certificado
+- 🤝 `fa-handshake` - Sponsors
+- 📍 `fa-map-marker-alt` - Ubicación
+- 🏥 `fa-hospital`, `fa-pills`, `fa-procedures` - Patrocinadores
+
+## � Programa del Congreso
+
+### Día 1 - Viernes 17 de Abril (11 sesiones)
+- 07:30 - Inscripciones
+- 08:00 - Bienvenida
+- 08:10 - Bloque 1 (Dr. Froilán Páez)
+- 09:20 - Coffee Break
+- 09:50 - Conferencista Nacional (Dr. Francisco Rosero)
+- 10:20 - Conferencista Nacional (Dr. Mario Montoya)
+- 11:40 - Preguntas
+- 12:00 - Simposio Almuerzo SANOFI
+- 14:00 - Cirugía en Vivo 1 y 2 (Dr. Neves / Dr. Morera)
+- 15:30 - Coffee Break
+- 20:00 - Cena con Conferencistas
+
+### Día 2 - Sábado 18 de Abril (12 sesiones)
+- 07:30 - Bienvenida
+- 07:30 - Cirugía en Vivo 3 y 4 (Dr. Montoya / Dr. Páez)
+- 09:20 - Coffee Break
+- 11:00 - Conferencista Nacional
+- 11:30 - Conferencista Nacional
+- 12:00 - Preguntas
+- 12:00 - Simposio Almuerzo GSK
+- 14:00 - Conferencista Internacional (Dr. Morera)
+- 14:30 - Conferencista Nacional
+- 15:00 - Coffee Break
+- 15:30 - Conferencista Internacional (Dr. Noé Herrera)
+- 16:00 - Conferencista Internacional (Dr. Neves)
+
+**Total: 23 sesiones programadas**
+
+## 👨‍⚕️ Conferencistas
+
+### Internacionales
+- 🇻🇪 **Dr. Froilán Páez** (Venezuela) - Rinoplastia
+- 🇵🇹 **Dr. José Carlos Neves** (Portugal) - Cirugía Plástica Facial, EAFPS
+- 🇪🇸 **Dr. Eduardo Morera Serna** (España) - Rinoplastia y Cirugía Facial
+- 🇲🇽 **Dr. Noé Herrera** (México) - Cirugía Facial Integral, Técnica L grafts
+
+### Nacionales
+- 🇨🇴 **Dr. Francisco Rosero** (Colombia) - Rinología
+- 🇨🇴 **Dr. Mario Montoya** (Colombia) - Cirugía Plástica Facial
+- 🇨🇴 **Dr. Guillermo Landínez** (Colombia) - Presidente Comité Científico
+
+## 💼 Patrocinadores
+
+- 🥇 **Gold**: SANOFI, QLUB Quirófanos
+- 🥉 **Bronze**: GlaxoSmithKline
 
 ### Opción 1: Abrir directamente
 1. Navega a la carpeta `mvp-demo`
@@ -115,10 +199,20 @@ Edita las variables CSS en `styles.css` (líneas 5-25):
 ```
 mvp-demo/
 ├── index.html       # Estructura HTML y contenedor móvil
-├── styles.css       # Estilos y diseño responsive
-├── app.js          # Lógica, router, datos y vistas
+├── styles.css       # Estilos tema oscuro RINOMED + responsive
+├── app.js          # Lógica, router, datos del congreso y vistas
+├── logo.svg        # Logo vectorial RINOMED 2026
 └── README.md       # Este archivo
 ```
+
+## 🔧 Tecnologías
+
+- **HTML5**: Estructura semántica
+- **CSS3**: Variables CSS, Flexbox, Grid, Animaciones
+- **JavaScript ES6+**: Módulos, Arrow functions, Template literals
+- **Font Awesome 6.5.1**: Iconografía profesional (CDN)
+- **LocalStorage API**: Persistencia de datos
+- **SVG**: Logo vectorial escalable
 
 ## 💾 Persistencia (localStorage)
 
