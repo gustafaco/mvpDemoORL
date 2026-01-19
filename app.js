@@ -7,15 +7,17 @@
 // CONFIGURACIÓN DEL EVENTO (Editable)
 // ============================================
 const EVENT = {
-    name: 'Curso Internacional de Otorrinolaringología',
+    name: 'RINOMED 2026 - Congreso Internacional de Rinología y Cirugía Plástica Facial',
     city: 'Medellín',
     country: 'Colombia',
-    dates: '15-16 de Marzo, 2026',
-    venue: 'Hotel InterContinental Medellín',
-    address: 'Calle 16 #28-51, El Poblado, Medellín',
-    mapLink: 'https://maps.google.com/?q=InterContinental+Medellin',
-    contactEmail: 'info@cursoorl-medellin.com',
-    contactPhone: '+57 (4) 444-5555'
+    dates: '17-18 de Abril, 2026',
+    venue: 'Centro de Eventos El Tesoro',
+    address: 'Carrera 25A # 1A Sur - 45, Piso 5, Medellín, Colombia',
+    mapLink: 'https://www.google.com/maps/place/Centro+De+Eventos+El+Tesoro/@6.196285,-75.5628239,17z',
+    contactEmail: 'info@rinomedellin.com',
+    contactPhone: '+57 320 806 5201',
+    website: 'https://rinomedellin.com/',
+    whatsapp: 'https://api.whatsapp.com/send?phone=573208065201'
 };
 
 // ============================================
@@ -25,95 +27,263 @@ const DATA = {
     // Días del evento
     days: ['Día 1', 'Día 2'],
     
-    // Sesiones (mínimo 6 sesiones con diferentes especialidades)
+    // Sesiones completas del congreso
     sessions: [
+        // ===== DÍA 1: VIERNES 17 DE ABRIL =====
         {
             id: 's1',
-            title: 'Rinoplastia Funcional y Estética: Tendencias Actuales',
+            title: 'Inscripciones',
             day: 'Día 1',
-            time: '08:00 - 09:30',
-            room: 'Sala Principal',
-            level: 'Avanzado',
-            topic: 'Rinología',
-            speakers: ['sp1', 'sp2'],
-            description: 'Técnicas modernas en rinoplastia con enfoque funcional y estético. Casos complejos y soluciones innovadoras con profesores internacionales.'
+            time: '07:30 - 08:00',
+            room: 'Hall Principal',
+            level: 'General',
+            topic: 'Registro',
+            speakers: [],
+            description: 'Registro de asistentes y entrega de material del congreso. Staff disponible para atención.'
         },
         {
             id: 's2',
-            title: 'Cirugía Endoscópica de Senos Paranasales',
+            title: 'Bienvenida',
             day: 'Día 1',
-            time: '10:00 - 11:30',
+            time: '08:00 - 08:10',
             room: 'Sala Principal',
-            level: 'Intermedio',
-            topic: 'Rinología',
-            speakers: ['sp1'],
-            description: 'Abordaje endoscópico en patología rinosinusal. Instrumental, técnica quirúrgica y manejo de complicaciones.'
+            level: 'General',
+            topic: 'Inauguración',
+            speakers: [],
+            description: 'Ceremonia de bienvenida e inauguración oficial del RINOMED 2026.'
         },
         {
             id: 's3',
-            title: 'Implantes Cocleares: Selección de Candidatos y Resultados',
+            title: 'Bloque 1',
             day: 'Día 1',
-            time: '12:00 - 13:30',
+            time: '08:10 - 09:20',
             room: 'Sala Principal',
             level: 'Avanzado',
-            topic: 'Otología',
-            speakers: ['sp3'],
-            description: 'Criterios de selección para implantes cocleares en adultos y niños. Resultados audiológicos y rehabilitación post-implante.'
+            topic: 'Rinoplastia',
+            speakers: ['sp1'],
+            description: 'Dr. Froilán Páez presenta las últimas tendencias en rinoplastia funcional y estética. Casos complejos y soluciones innovadoras.'
         },
         {
             id: 's4',
-            title: 'Taller Práctico: Microcirugía de Laringe',
+            title: 'Coffee Break y Visita Comercial',
             day: 'Día 1',
-            time: '14:30 - 16:30',
-            room: 'Sala de Talleres',
-            level: 'Intermedio',
-            topic: 'Laringología',
-            speakers: ['sp4', 'sp2'],
-            description: 'Taller hands-on de microcirugía laríngea. Modelos anatómicos y simulación de procedimientos endoscópicos.'
+            time: '09:20 - 09:50',
+            room: 'Área Comercial',
+            level: 'General',
+            topic: 'Networking',
+            speakers: [],
+            description: 'Receso para café, networking y visita a stands de patrocinadores.'
         },
         {
             id: 's5',
-            title: 'Otitis Media Crónica: Actualización en Tratamiento',
-            day: 'Día 2',
-            time: '08:00 - 09:30',
+            title: 'Conferencista Nacional',
+            day: 'Día 1',
+            time: '09:50 - 10:20',
             room: 'Sala Principal',
-            level: 'Básico',
-            topic: 'Otología',
-            speakers: ['sp3'],
-            description: 'Enfoque diagnóstico y terapéutico actualizado de otitis media crónica. Tratamiento médico vs. quirúrgico.'
+            level: 'Intermedio',
+            topic: 'Rinología',
+            speakers: ['sp2'],
+            description: 'Dr. Francisco Rosero comparte su experiencia en cirugía rinológica avanzada.'
         },
         {
             id: 's6',
-            title: 'Casos Clínicos Complejos: Panel Multidisciplinario',
-            day: 'Día 2',
-            time: '10:00 - 12:00',
+            title: 'Conferencista Nacional',
+            day: 'Día 1',
+            time: '10:20 - 11:40',
             room: 'Sala Principal',
             level: 'Avanzado',
-            topic: 'Casos Clínicos',
-            speakers: ['sp1', 'sp2', 'sp3', 'sp4'],
-            description: 'Discusión de casos complejos con panel de expertos internacionales. Abordaje multidisciplinario y toma de decisiones.'
+            topic: 'Cirugía Facial',
+            speakers: ['sp3'],
+            description: 'Dr. Mario Montoya presenta técnicas innovadoras en cirugía plástica facial.'
         },
         {
             id: 's7',
-            title: 'Patología de la Voz: Diagnóstico y Manejo',
-            day: 'Día 2',
-            time: '14:00 - 15:30',
+            title: 'Preguntas',
+            day: 'Día 1',
+            time: '11:40 - 12:00',
             room: 'Sala Principal',
-            level: 'Intermedio',
-            topic: 'Laringología',
-            speakers: ['sp4'],
-            description: 'Enfoque integral de la patología vocal. Videoestroboscopia, tratamiento médico y fonoquirúrgico.'
+            level: 'General',
+            topic: 'Interactivo',
+            speakers: [],
+            description: 'Sesión de preguntas y respuestas con los conferencistas.'
         },
         {
             id: 's8',
-            title: 'Innovaciones en Cirugía Robótica ORL',
+            title: 'Simposio Almuerzo',
+            day: 'Día 1',
+            time: '12:00 - 14:00',
+            room: 'Área de Almuerzos',
+            level: 'General',
+            topic: 'Simposio',
+            speakers: [],
+            description: 'Simposio patrocinado por SANOFI. Networking y almuerzo.'
+        },
+        {
+            id: 's9',
+            title: 'Cirugía en Vivo 1 y 2',
+            day: 'Día 1',
+            time: '14:00 - 18:00',
+            room: 'QLUB Quirófanos',
+            level: 'Avanzado',
+            topic: 'Cirugía en Vivo',
+            speakers: ['sp4', 'sp5'],
+            description: 'Transmisión en tiempo real de cirugías realizadas por Dr. Neves y Dr. Morera. Tecnología audiovisual de alta calidad.'
+        },
+        {
+            id: 's10',
+            title: 'Coffee Break y Visita Comercial',
+            day: 'Día 1',
+            time: '15:30 - 16:00',
+            room: 'Área Comercial',
+            level: 'General',
+            topic: 'Networking',
+            speakers: [],
+            description: 'Receso vespertino para café y visita comercial.'
+        },
+        {
+            id: 's11',
+            title: 'Cena con Conferencistas',
+            day: 'Día 1',
+            time: '20:00',
+            room: 'Centro de Eventos El Tesoro',
+            level: 'General',
+            topic: 'Social',
+            speakers: [],
+            description: 'Cena de bienvenida y coctel con los conferencistas internacionales. Networking exclusivo.'
+        },
+        
+        // ===== DÍA 2: SÁBADO 18 DE ABRIL =====
+        {
+            id: 's12',
+            title: 'Bienvenida',
             day: 'Día 2',
-            time: '16:00 - 17:30',
+            time: '07:30',
+            room: 'Sala Principal',
+            level: 'General',
+            topic: 'Inauguración',
+            speakers: [],
+            description: 'Bienvenida al segundo día del congreso. Staff disponible.'
+        },
+        {
+            id: 's13',
+            title: 'Cirugía en Vivo 3 y 4',
+            day: 'Día 2',
+            time: '07:30 - 11:00',
+            room: 'QLUB Quirófanos',
+            level: 'Avanzado',
+            topic: 'Cirugía en Vivo',
+            speakers: ['sp3', 'sp1'],
+            description: 'Transmisión en tiempo real de cirugías realizadas por Dr. Montoya y Dr. Páez. Casos complejos de rinoplastia.'
+        },
+        {
+            id: 's14',
+            title: 'Coffee Break y Visita Comercial',
+            day: 'Día 2',
+            time: '09:20 - 09:50',
+            room: 'Área Comercial',
+            level: 'General',
+            topic: 'Networking',
+            speakers: [],
+            description: 'Receso matutino para café y networking.'
+        },
+        {
+            id: 's15',
+            title: 'Conferencista Nacional',
+            day: 'Día 2',
+            time: '11:00 - 11:30',
+            room: 'Sala Principal',
+            level: 'Intermedio',
+            topic: 'Rinología',
+            speakers: [],
+            description: 'Conferencia nacional - A confirmar.'
+        },
+        {
+            id: 's16',
+            title: 'Conferencista Nacional',
+            day: 'Día 2',
+            time: '11:30 - 12:00',
+            room: 'Sala Principal',
+            level: 'Intermedio',
+            topic: 'Cirugía Facial',
+            speakers: [],
+            description: 'Conferencia nacional - A confirmar.'
+        },
+        {
+            id: 's17',
+            title: 'Preguntas',
+            day: 'Día 2',
+            time: '12:00 - 12:10',
+            room: 'Sala Principal',
+            level: 'General',
+            topic: 'Interactivo',
+            speakers: [],
+            description: 'Sesión de preguntas y respuestas.'
+        },
+        {
+            id: 's18',
+            title: 'Simposio Almuerzo',
+            day: 'Día 2',
+            time: '12:00 - 14:00',
+            room: 'Área de Almuerzos',
+            level: 'General',
+            topic: 'Simposio',
+            speakers: [],
+            description: 'Simposio patrocinado por GSK. Networking y almuerzo.'
+        },
+        {
+            id: 's19',
+            title: 'Conferencista Internacional',
+            day: 'Día 2',
+            time: '14:00 - 14:30',
             room: 'Sala Principal',
             level: 'Avanzado',
-            topic: 'Innovación',
-            speakers: ['sp1', 'sp2'],
-            description: 'Últimas tecnologías en cirugía robótica aplicada a ORL. Indicaciones, técnica y resultados a largo plazo.'
+            topic: 'Rinoplastia',
+            speakers: ['sp5'],
+            description: 'Dr. Eduardo Morera comparte su experiencia internacional en rinoplastia estética y funcional.'
+        },
+        {
+            id: 's20',
+            title: 'Conferencista Nacional',
+            day: 'Día 2',
+            time: '14:30 - 15:00',
+            room: 'Sala Principal',
+            level: 'Intermedio',
+            topic: 'Cirugía Facial',
+            speakers: [],
+            description: 'Conferencia nacional - A confirmar.'
+        },
+        {
+            id: 's21',
+            title: 'Coffee Break y Visita Comercial',
+            day: 'Día 2',
+            time: '15:00 - 15:30',
+            room: 'Área Comercial',
+            level: 'General',
+            topic: 'Networking',
+            speakers: [],
+            description: 'Último receso del congreso. Visita comercial.'
+        },
+        {
+            id: 's22',
+            title: 'Conferencista Internacional',
+            day: 'Día 2',
+            time: '15:30 - 16:00',
+            room: 'Sala Principal',
+            level: 'Avanzado',
+            topic: 'Cirugía Facial Integral',
+            speakers: ['sp6'],
+            description: 'Dr. Noé Herrera presenta su técnica L grafts y abordaje integral de cirugía facial.'
+        },
+        {
+            id: 's23',
+            title: 'Conferencista Internacional',
+            day: 'Día 2',
+            time: '16:00 - 16:30',
+            room: 'Sala Principal',
+            level: 'Avanzado',
+            topic: 'Cirugía Plástica Facial',
+            speakers: ['sp4'],
+            description: 'Dr. José Carlos Neves cierra el congreso con una conferencia magistral sobre cirugía plástica facial.'
         }
     ],
     
@@ -121,43 +291,73 @@ const DATA = {
     speakers: [
         {
             id: 'sp1',
-            name: 'Dr. James Richardson',
-            country: 'Estados Unidos',
-            flag: '🇺🇸',
-            institution: 'Harvard Medical School',
-            areas: ['Rinología', 'Cirugía Endoscópica'],
-            bio: 'Profesor de Otorrinolaringología en Harvard Medical School con más de 25 años de experiencia. Especialista en cirugía endoscópica de base de cráneo y rinoplastia funcional. Ha publicado más de 150 artículos científicos y es referente internacional en rinología.',
-            sessions: ['s1', 's2', 's6', 's8']
+            name: 'Dr. Froilán Páez',
+            country: 'Venezuela',
+            flag: '🇻🇪',
+            institution: 'Especialista Internacional',
+            areas: ['Rinoplastia', 'Cirugía Plástica Facial'],
+            bio: 'Destacado especialista en Rinoplastia y Cirugía Plástica Facial con reconocimiento internacional. Experto en técnicas avanzadas de rinoplastia funcional y estética. Conferencista regular en eventos médicos latinoamericanos.',
+            sessions: ['s3', 's13']
         },
         {
             id: 'sp2',
-            name: 'Dr. Paolo Martinelli',
-            country: 'Italia',
-            flag: '🇮🇹',
-            institution: 'Universidad de Milán',
-            areas: ['Laringología', 'Cirugía Robótica'],
-            bio: 'Cirujano de cabeza y cuello en la Universidad de Milán. Pionero en técnicas de cirugía robótica transoral. Director del programa de residencia en ORL y presidente de la Sociedad Italiana de Laringología.',
-            sessions: ['s1', 's4', 's6', 's8']
+            name: 'Dr. Francisco Rosero',
+            country: 'Colombia',
+            flag: '🇨🇴',
+            institution: 'Colombia',
+            areas: ['Rinología', 'Cirugía Facial'],
+            bio: 'Especialista colombiano en rinología y cirugía facial. Experiencia en técnicas avanzadas de rinoplastia y cirugía reconstructiva. Miembro activo de sociedades científicas nacionales.',
+            sessions: ['s5']
         },
         {
             id: 'sp3',
-            name: 'Dra. María Elena Gutiérrez',
+            name: 'Dr. Mario Montoya',
             country: 'Colombia',
             flag: '🇨🇴',
-            institution: 'Universidad de Antioquia',
-            areas: ['Otología', 'Implantes Cocleares'],
-            bio: 'Otóloga especializada en implantes cocleares y cirugía de oído medio. Profesora titular de la Universidad de Antioquia. Coordinadora del programa de implantes cocleares en Medellín con más de 500 cirugías realizadas.',
-            sessions: ['s3', 's5', 's6']
+            institution: 'Colombia',
+            areas: ['Cirugía Plástica Facial', 'Técnicas Avanzadas'],
+            bio: 'Especialista en cirugía plástica facial con amplia trayectoria en procedimientos innovadores. Enfoque en resultados naturales y funcionales.',
+            sessions: ['s6', 's13']
         },
         {
             id: 'sp4',
-            name: 'Dr. Carlos Mendoza',
+            name: 'Dr. José Carlos Neves',
+            country: 'Portugal',
+            flag: '🇵🇹',
+            institution: 'European Academy of Facial Plastic Surgery',
+            areas: ['Cirugía Plástica Facial', 'ORL'],
+            bio: 'Certificado en Cirugía Plástica Facial por EBCFPRS (Londres, Reino Unido). Especialista en Otorrinolaringología y Cirugía de Cabeza y Cuello (Portugal). Miembro de la Junta Directiva de la Academia Europea de Cirugía Plástica Facial (EAFPS). Presidente del Comité de Cirugía Plástica Facial de la Sociedad Portuguesa de ORL.',
+            sessions: ['s9', 's23']
+        },
+        {
+            id: 'sp5',
+            name: 'Dr. Eduardo Morera Serna',
+            country: 'España',
+            flag: '🇪🇸',
+            institution: 'España',
+            areas: ['Rinoplastia', 'Cirugía Plástica Facial'],
+            bio: 'Destacado especialista español en Rinoplastia y Cirugía Plástica Facial. Reconocido internacionalmente por sus técnicas innovadoras y resultados excepcionales. Conferencista frecuente en congresos europeos y latinoamericanos.',
+            sessions: ['s9', 's19']
+        },
+        {
+            id: 'sp6',
+            name: 'Dr. Noé Herrera',
+            country: 'México',
+            flag: '🇲🇽',
+            institution: 'Universidad Nacional Autónoma de México (UNAM)',
+            areas: ['Cirugía Facial Integral', 'Rinoplastia'],
+            bio: 'Otorrinolaringólogo certificado por el CMORL, formado en la UNAM. Creador de la técnica L grafts que ha revolucionado la rinoplastia funcional y estética. Profesor en diversos foros internacionales. Dominio en procedimientos combinados como cirugía ortognática, de párpados, mentón y mejillas. Miembro titular de la SMRCPF.',
+            sessions: ['s22']
+        },
+        {
+            id: 'sp7',
+            name: 'Dr. Guillermo Arturo Landínez Cepeda',
             country: 'Colombia',
             flag: '🇨🇴',
-            institution: 'Clínica Universitaria Colombia',
-            areas: ['Laringología', 'Patología de la Voz'],
-            bio: 'Laringólogo con subespecialidad en patología de la voz. Fundador del Centro de Voz en Bogotá. Docente de cirugía laríngea y microlaringoscopia. Miembro activo de la American Laryngological Association.',
-            sessions: ['s4', 's6', 's7']
+            institution: 'Universidad Nacional de Colombia / Universidad CES',
+            areas: ['Otorrinolaringología', 'Cirugía Plástica Facial', 'Rinología'],
+            bio: 'Presidente del Comité Científico. Médico Cirujano de la Universidad Nacional de Colombia. Especialista en Otorrinolaringología del Hospital Clínico Universitario de Valladolid, España (2011). Especialista en Cirugía Plástica Facial y Reconstructiva de la Universidad CES (2015). Subespecialización en Cirugía Endoscópica de Base de Cráneo en Jackson Memorial Hospital, Miami. Miembro de la Junta Directiva de Facialis Academy.',
+            sessions: []
         }
     ],
     
@@ -165,30 +365,30 @@ const DATA = {
     sponsors: [
         {
             id: 'sponsor1',
-            name: 'MedTech Solutions',
-            tier: 'Gold',
-            logo: '🏥',
-            description: 'Líder global en equipamiento endoscópico de última generación para cirugía ORL. Más de 30 años innovando en tecnología médica.',
-            website: 'https://medtech-solutions.com',
-            products: ['Endoscopios HD', 'Torres de video', 'Instrumental quirúrgico']
+            name: 'GlaxoSmithKline',
+            tier: 'Bronze',
+            logo: '<i class="fas fa-hospital"></i>',
+            description: 'Compañía farmacéutica global comprometida con mejorar la salud y el bienestar de las personas. Líder en investigación y desarrollo de medicamentos innovadores.',
+            website: 'https://www.gsk.com',
+            products: ['Productos Farmacéuticos', 'Investigación Médica', 'Innovación en Salud']
         },
         {
             id: 'sponsor2',
-            name: 'BioPharm Colombia',
-            tier: 'Silver',
-            logo: '💊',
-            description: 'Farmacéutica especializada en medicamentos ORL y productos para patología respiratoria alta. Presencia en 15 países de Latinoamérica.',
-            website: 'https://biopharma-col.com',
-            products: ['Antibióticos', 'Corticoides tópicos', 'Descongestionantes']
+            name: 'SANOFI',
+            tier: 'Gold',
+            logo: '<i class="fas fa-pills"></i>',
+            description: 'Líder mundial en el sector de la salud. Dedicados a apoyar a las personas a enfrentar sus desafíos de salud mediante soluciones innovadoras.',
+            website: 'https://www.sanofi.com',
+            products: ['Soluciones Farmacéuticas', 'Simposios Médicos', 'Educación Continua']
         },
         {
             id: 'sponsor3',
-            name: 'AudioCare Implants',
-            tier: 'Bronze',
-            logo: '🦻',
-            description: 'Empresa especializada en implantes cocleares y prótesis auditivas de última tecnología. Soporte técnico 24/7 para pacientes.',
-            website: 'https://audiocare.com',
-            products: ['Implantes cocleares', 'Audífonos digitales', 'Sistemas BAHA']
+            name: 'QLUB Quirófanos',
+            tier: 'Gold',
+            logo: '<i class="fas fa-procedures"></i>',
+            description: 'Centro quirúrgico de última generación en Medellín. Sede oficial para las cirugías en vivo de RINOMED 2026 con tecnología audiovisual de alta calidad para transmisiones en tiempo real.',
+            website: 'https://qlubquirofanos.com',
+            products: ['Quirófanos de Alta Tecnología', 'Transmisión Quirúrgica', 'Educación Médica']
         }
     ]
 };
@@ -408,8 +608,11 @@ const views = {
         return `
             <div class="login-container">
                 <div class="login-header">
-                    <div class="login-logo">🏥</div>
-                    <h1 class="login-title">${EVENT.name}</h1>
+                    <div class="login-logo">
+                        <img src="logo.svg" alt="RINOMED 2026" style="width: 160px; height: auto; filter: drop-shadow(0 4px 8px rgba(192, 122, 184, 0.5));">
+                    </div>
+                    <h1 class="login-title">RINOMED 2026</h1>
+                    <p class="login-subtitle" style="margin-bottom: 4px;">Congreso Internacional de Rinología</p>
                     <p class="login-subtitle">${EVENT.city} • ${EVENT.dates}</p>
                 </div>
                 
@@ -435,13 +638,13 @@ const views = {
                     </button>
                     
                     <button type="button" class="btn btn-secondary btn-block" onclick="handleReset()">
-                        🔄 Reset Demo (Limpiar datos)
+                        <i class="fas fa-sync-alt"></i> Reset Demo (Limpiar datos)
                     </button>
                 </form>
                 
                 <div class="text-center mt-3">
                     <p style="font-size: 12px; color: var(--text-secondary);">
-                        💡 Esta es una demo. Los datos son ficticios.
+                        <i class="fas fa-info-circle"></i> Esta es una demo. Los datos son ficticios.
                     </p>
                 </div>
             </div>
@@ -479,27 +682,27 @@ const views = {
                 
                 <div class="quick-access">
                     <div class="quick-access-item" onclick="router.navigate('agenda')">
-                        <div class="quick-access-icon">📅</div>
+                        <div class="quick-access-icon"><i class="fas fa-calendar-alt"></i></div>
                         <div class="quick-access-label">Agenda</div>
                     </div>
                     <div class="quick-access-item" onclick="router.navigate('speakers')">
-                        <div class="quick-access-icon">👨‍⚕️</div>
+                        <div class="quick-access-icon"><i class="fas fa-user-md"></i></div>
                         <div class="quick-access-label">Profesores</div>
                     </div>
                     <div class="quick-access-item" onclick="router.navigate('certificate')">
-                        <div class="quick-access-icon">🎓</div>
+                        <div class="quick-access-icon"><i class="fas fa-certificate"></i></div>
                         <div class="quick-access-label">Certificado</div>
                     </div>
                     <div class="quick-access-item" onclick="router.navigate('sponsors')">
-                        <div class="quick-access-icon">🤝</div>
+                        <div class="quick-access-icon"><i class="fas fa-handshake"></i></div>
                         <div class="quick-access-label">Sponsors</div>
                     </div>
                     <div class="quick-access-item" onclick="router.navigate('info')">
-                        <div class="quick-access-icon">📍</div>
+                        <div class="quick-access-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div class="quick-access-label">Logística</div>
                     </div>
                     <div class="quick-access-item" onclick="router.navigate('my')">
-                        <div class="quick-access-icon">⭐</div>
+                        <div class="quick-access-icon"><i class="fas fa-star"></i></div>
                         <div class="quick-access-label">Mi Agenda</div>
                     </div>
                 </div>
@@ -726,7 +929,7 @@ const views = {
             return `
                 <div class="container">
                     <div class="empty-state">
-                        <div class="empty-state-icon">⭐</div>
+                        <div class="empty-state-icon"><i class="fas fa-star"></i></div>
                         <h3 style="color: var(--text-primary); margin-bottom: 8px;">
                             Mi Agenda está vacía
                         </h3>
@@ -752,8 +955,8 @@ const views = {
                 ${mySessions.map(session => `
                     <div class="card card-clickable" onclick="router.navigate('session/${session.id}')">
                         <div class="d-flex justify-between align-center mb-1">
-                            <span class="time-badge">${session.time}</span>
-                            <span style="font-size: 20px;">⭐</span>
+                            <span class="time-badge"><i class="far fa-clock"></i> ${session.time}</span>
+                            <span style="font-size: 20px; color: var(--primary-color);"><i class="fas fa-star"></i></span>
                         </div>
                         <h3 class="card-title">${session.title}</h3>
                         <p class="card-subtitle">${session.day} • ${session.room}</p>
@@ -764,7 +967,7 @@ const views = {
                 `).join('')}
                 
                 <button class="btn btn-secondary btn-block mt-2" onclick="handleClearMyAgenda()">
-                    🗑️ Vaciar Mi Agenda
+                    <i class="fas fa-trash-alt"></i> Vaciar Mi Agenda
                 </button>
             </div>
         `;
@@ -786,7 +989,7 @@ const views = {
                     
                     return `
                         <h4 style="margin: 24px 0 12px; color: var(--text-primary);">
-                            ${tier === 'Gold' ? '🥇' : tier === 'Silver' ? '🥈' : '🥉'} ${tier}
+                            ${tier === 'Gold' ? '<i class="fas fa-medal" style="color: #FFD700;"></i>' : tier === 'Silver' ? '<i class="fas fa-medal" style="color: #C0C0C0;"></i>' : '<i class="fas fa-medal" style="color: #CD7F32;"></i>'} ${tier}
                         </h4>
                         ${tierSponsors.map(sponsor => `
                             <div class="card card-clickable" onclick="router.navigate('sponsor/${sponsor.id}')">

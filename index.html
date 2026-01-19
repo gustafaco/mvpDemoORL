@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso ORL Medellín 2026</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>RINOMED 2026 - Congreso Internacional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css?v=2">
 </head>
 <body>
     <!-- Contenedor principal: simula un móvil centrado -->
@@ -13,11 +14,11 @@
         <!-- Barra superior (header) -->
         <header class="app-header" id="appHeader">
             <div class="header-back" id="headerBack">
-                <button class="btn-back" onclick="router.back()">←</button>
+                <button class="btn-back" onclick="router.back()"><i class="fas fa-arrow-left"></i></button>
             </div>
-            <div class="header-title" id="headerTitle">Curso ORL</div>
+            <div class="header-title" id="headerTitle">RINOMED 2026</div>
             <div class="header-actions" id="headerActions">
-                <button class="btn-icon" onclick="router.navigate('profile')">👤</button>
+                <button class="btn-icon" onclick="router.navigate('profile')"><i class="fas fa-user-circle"></i></button>
             </div>
         </header>
 
@@ -29,23 +30,23 @@
         <!-- Barra de navegación inferior (tabs) -->
         <nav class="app-tabs" id="appTabs">
             <button class="tab-item" data-route="home" onclick="router.navigate('home')">
-                <span class="tab-icon">🏠</span>
+                <span class="tab-icon"><i class="fas fa-home"></i></span>
                 <span class="tab-label">Inicio</span>
             </button>
             <button class="tab-item" data-route="agenda" onclick="router.navigate('agenda')">
-                <span class="tab-icon">📅</span>
+                <span class="tab-icon"><i class="fas fa-calendar-alt"></i></span>
                 <span class="tab-label">Agenda</span>
             </button>
             <button class="tab-item" data-route="speakers" onclick="router.navigate('speakers')">
-                <span class="tab-icon">👨‍⚕️</span>
+                <span class="tab-icon"><i class="fas fa-user-md"></i></span>
                 <span class="tab-label">Profesores</span>
             </button>
             <button class="tab-item" data-route="my" onclick="router.navigate('my')">
-                <span class="tab-icon">⭐</span>
+                <span class="tab-icon"><i class="fas fa-star"></i></span>
                 <span class="tab-label">Mi Agenda</span>
             </button>
             <button class="tab-item" data-route="info" onclick="router.navigate('info')">
-                <span class="tab-icon">ℹ️</span>
+                <span class="tab-icon"><i class="fas fa-info-circle"></i></span>
                 <span class="tab-label">Info</span>
             </button>
         </nav>
@@ -53,9 +54,9 @@
 
     <!-- Panel lateral opcional (información del demo) -->
     <aside class="demo-panel">
-        <h3>🎯 Demo MVP - Evento Médico</h3>
-        <p><strong>Curso de Otorrinolaringología</strong></p>
-        <p>Esta es una demostración interactiva de una app móvil para eventos médicos.</p>
+        <h3>🎯 Demo MVP - RINOMED 2026</h3>
+        <p><strong>Congreso Internacional de Rinología y Cirugía Plástica Facial</strong></p>
+        <p>Demo interactivo de app móvil para el evento del 17-18 de Abril en Medellín.</p>
         <hr>
         <h4>Características implementadas:</h4>
         <ul>
@@ -74,6 +75,6 @@
     </aside>
 
     <!-- Script principal -->
-    <script src="app.js"></script>
+    <script src="app.js?v=2"></script>
 </body>
 </html>
