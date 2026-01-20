@@ -390,6 +390,116 @@ const DATA = {
             website: 'https://qlubquirofanos.com',
             products: ['Quirófanos de Alta Tecnología', 'Transmisión Quirúrgica', 'Educación Médica']
         }
+    ],
+    
+    // Hoteles recomendados
+    hotels: [
+        {
+            id: 'hotel1',
+            name: 'Hotel Dann Carlton Medellín',
+            category: '5 Estrellas',
+            distance: '2.5 km del evento',
+            price: 'Desde $250.000 COP/noche',
+            rating: 4.5,
+            address: 'Cra. 43A #7-50, El Poblado',
+            phone: '+57 4 444 5151',
+            amenities: ['WiFi Gratis', 'Desayuno incluido', 'Gimnasio', 'Piscina', 'Spa'],
+            description: 'Hotel de lujo en El Poblado, cerca del Centro de Eventos El Tesoro. Tarifas especiales para asistentes de RINOMED 2026.'
+        },
+        {
+            id: 'hotel2',
+            name: 'Hotel Estelar La Fontana',
+            category: '4 Estrellas',
+            distance: '1.8 km del evento',
+            price: 'Desde $180.000 COP/noche',
+            rating: 4.3,
+            address: 'Cra. 43C #9-51, El Poblado',
+            phone: '+57 4 268 2828',
+            amenities: ['WiFi Gratis', 'Restaurante', 'Bar', 'Centro de negocios'],
+            description: 'Excelente ubicación en El Poblado con fácil acceso al evento. Ambiente ejecutivo y confortable.'
+        },
+        {
+            id: 'hotel3',
+            name: 'Diez Hotel Categoría Colombia',
+            category: '5 Estrellas',
+            distance: '3.1 km del evento',
+            price: 'Desde $320.000 COP/noche',
+            rating: 4.7,
+            address: 'Cra. 43A #5A-113, El Poblado',
+            phone: '+57 4 268 0366',
+            amenities: ['WiFi Gratis', 'Spa Premium', 'Rooftop Bar', 'Gimnasio', 'Room Service 24h'],
+            description: 'Boutique hotel de lujo con diseño contemporáneo. Perfecto para quienes buscan una experiencia premium.'
+        },
+        {
+            id: 'hotel4',
+            name: 'Hotel Poblado Plaza',
+            category: '3 Estrellas',
+            distance: '2.2 km del evento',
+            price: 'Desde $120.000 COP/noche',
+            rating: 4.0,
+            address: 'Cra. 43A #11A-80, El Poblado',
+            phone: '+57 4 266 0909',
+            amenities: ['WiFi Gratis', 'Desayuno', 'Parking'],
+            description: 'Opción económica en zona privilegiada. Buena relación calidad-precio para estancias cortas.'
+        }
+    ],
+    
+    // Actividades turísticas
+    activities: [
+        {
+            id: 'act1',
+            name: 'Parque Arví',
+            category: 'Naturaleza',
+            duration: '4-5 horas',
+            icon: '<i class="fas fa-mountain"></i>',
+            description: 'Reserva natural de 16.000 hectáreas. Acceso por metrocable con vistas espectaculares de la ciudad.',
+            highlights: ['Senderismo', 'Mercado agroecológico', 'Aire puro', 'Fotografía']
+        },
+        {
+            id: 'act2',
+            name: 'Comuna 13 - Graffiti Tour',
+            category: 'Cultura',
+            duration: '3 horas',
+            icon: '<i class="fas fa-paint-brush"></i>',
+            description: 'Recorrido por el barrio más transformado de Medellín. Arte urbano, escaleras eléctricas y historia de resiliencia.',
+            highlights: ['Arte urbano', 'Historia local', 'Escaleras eléctricas', 'Gastronomía']
+        },
+        {
+            id: 'act3',
+            name: 'Pueblito Paisa',
+            category: 'Turismo',
+            duration: '2 horas',
+            icon: '<i class="fas fa-landmark"></i>',
+            description: 'Réplica de un pueblo típico antioqueño en el Cerro Nutibara. Vista panorámica de 360° de Medellín.',
+            highlights: ['Vista panorámica', 'Artesanías', 'Café colombiano', 'Fotografía']
+        },
+        {
+            id: 'act4',
+            name: 'Museo de Antioquia',
+            category: 'Museo',
+            duration: '2-3 horas',
+            icon: '<i class="fas fa-university"></i>',
+            description: 'Mayor colección de obras de Fernando Botero. Arte colombiano e internacional en el corazón de la ciudad.',
+            highlights: ['Obras de Botero', 'Arte colombiano', 'Plaza Botero', 'Historia']
+        },
+        {
+            id: 'act5',
+            name: 'Guatapé y Piedra del Peñol',
+            category: 'Excursión',
+            duration: 'Día completo',
+            icon: '<i class="fas fa-flag-checkered"></i>',
+            description: 'Pueblo colorido a 2 horas de Medellín. Subir los 740 escalones de la Piedra del Peñol para vistas increíbles.',
+            highlights: ['Piedra del Peñol', 'Pueblo pintoresco', 'Paseo en lancha', 'Gastronomía']
+        },
+        {
+            id: 'act6',
+            name: 'Parque Explora',
+            category: 'Ciencia',
+            duration: '3-4 horas',
+            icon: '<i class="fas fa-flask"></i>',
+            description: 'Museo interactivo de ciencia y tecnología. Acuario, planetario y más de 300 experiencias interactivas.',
+            highlights: ['Acuario', 'Planetario', 'Experimentos', 'Tecnología']
+        }
     ]
 };
 
@@ -402,6 +512,8 @@ const AppState = {
     mySessions: [],
     selectedDay: 'Día 1',
     searchQuery: '',
+    infoTab: 'event',
+    sessionQuestions: {},
     
     // Cargar datos desde localStorage
     init() {
@@ -413,6 +525,11 @@ const AppState = {
         const savedSessions = localStorage.getItem('demo_orl_my_sessions');
         if (savedSessions) {
             this.mySessions = JSON.parse(savedSessions);
+        }
+        
+        const savedQuestions = localStorage.getItem('demo_orl_questions');
+        if (savedQuestions) {
+            this.sessionQuestions = JSON.parse(savedQuestions);
         }
     },
     
@@ -824,9 +941,46 @@ const views = {
                     ${isSaved ? '✓ Guardado en Mi Agenda' : '+ Agregar a Mi Agenda'}
                 </button>
                 
-                <button class="btn btn-accent btn-block mt-2" onclick="handleSendQuestion()">
-                    💬 Enviar Pregunta (Demo)
-                </button>
+                <div class="card mt-2">
+                    <h4 style="margin-bottom: 12px;"><i class="fas fa-comments"></i> Preguntas para el Ponente</h4>
+                    <div class="input-group">
+                        <textarea 
+                            id="questionText_${sessionId}" 
+                            class="input-field" 
+                            placeholder="Escribe tu pregunta aquí..." 
+                            rows="3" 
+                            style="resize: vertical; min-height: 60px;"></textarea>
+                    </div>
+                    <button class="btn btn-accent btn-block mt-2" onclick="handleSendQuestion('${sessionId}')">
+                        <i class="fas fa-paper-plane"></i> Enviar Pregunta
+                    </button>
+                    
+                    ${AppState.sessionQuestions[sessionId] && AppState.sessionQuestions[sessionId].length > 0 ? `
+                        <div class="mt-2" style="padding-top: 12px; border-top: 1px solid var(--border-color);">
+                            <h5 style="font-size: 14px; margin-bottom: 8px; color: var(--text-secondary);">
+                                <i class="fas fa-list"></i> Mis preguntas enviadas:
+                            </h5>
+                            ${AppState.sessionQuestions[sessionId].map((q, idx) => `
+                                <div class="question-item">
+                                    <div style="display: flex; justify-content: space-between; align-items: start;">
+                                        <p style="font-size: 13px; color: var(--text-primary); flex: 1; margin: 0;">${q.text}</p>
+                                        <button class="btn-icon" onclick="handleDeleteQuestion('${sessionId}', ${idx})" 
+                                                style="margin-left: 8px; background: none; border: none; color: var(--text-secondary); cursor: pointer;">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </div>
+                                    <p style="font-size: 11px; color: var(--text-light); margin: 4px 0 0 0;">
+                                        <i class="fas fa-clock"></i> ${q.timestamp}
+                                    </p>
+                                </div>
+                            `).join('')}
+                        </div>
+                    ` : ''}
+                    
+                    <p style="font-size: 11px; color: var(--text-light); margin-top: 12px; line-height: 1.4;">
+                        <i class="fas fa-info-circle"></i> En producción, las preguntas son moderadas antes de mostrarse al ponente en tiempo real.
+                    </p>
+                </div>
             </div>
         `;
     },
@@ -1055,8 +1209,32 @@ const views = {
     
     // VISTA: Información/Logística
     info() {
+        const currentTab = AppState.infoTab || 'event';
+        
         return `
             <div class="container">
+                <div class="info-tabs">
+                    <button class="info-tab ${currentTab === 'event' ? 'active' : ''}" onclick="handleInfoTab('event')">
+                        <i class="fas fa-info-circle"></i> Evento
+                    </button>
+                    <button class="info-tab ${currentTab === 'hotels' ? 'active' : ''}" onclick="handleInfoTab('hotels')">
+                        <i class="fas fa-hotel"></i> Hoteles
+                    </button>
+                    <button class="info-tab ${currentTab === 'tourism' ? 'active' : ''}" onclick="handleInfoTab('tourism')">
+                        <i class="fas fa-map-marked-alt"></i> Turismo
+                    </button>
+                </div>
+                
+                ${currentTab === 'event' ? this.infoEvent() : ''}
+                ${currentTab === 'hotels' ? this.infoHotels() : ''}
+                ${currentTab === 'tourism' ? this.infoTourism() : ''}
+            </div>
+        `;
+    },
+    
+    // Sub-vista: Información del evento
+    infoEvent() {
+        return `
                 <div class="card" style="text-align: center; background: var(--primary-color); color: white;">
                     <h2 style="margin-bottom: 8px; color: white;">${EVENT.name}</h2>
                     <p style="font-size: 16px;">${EVENT.city}, ${EVENT.country}</p>
@@ -1101,17 +1279,141 @@ const views = {
                 </div>
                 
                 <button class="btn btn-primary btn-block mt-2" onclick="window.open('${EVENT.mapLink}', '_blank')">
-                    🗺️ Abrir en Google Maps
+                    <i class="fas fa-map-marked-alt"></i> Abrir en Google Maps
                 </button>
                 
-                <div class="card mt-2">
-                    <h4 style="margin-bottom: 8px;">ℹ️ Nota Importante</h4>
-                    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;">
-                        Esta es una aplicación demo. En producción, aquí podrías incluir: 
-                        información de hoteles, transporte, restaurantes recomendados, y más.
+                <button class="btn btn-accent btn-block mt-2" onclick="window.open('${EVENT.whatsapp}', '_blank')">
+                    <i class="fab fa-whatsapp"></i> WhatsApp del Evento
+                </button>
+        `;
+    },
+    
+    // Sub-vista: Hoteles recomendados
+    infoHotels() {
+        return `
+                <p style="color: var(--text-secondary); margin-bottom: 16px; text-align: center;">
+                    Hoteles recomendados cerca del evento
+                </p>
+                
+                ${DATA.hotels.map(hotel => `
+                    <div class="card mb-2">
+                        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 8px;">
+                            <h3 style="color: var(--primary-color); margin: 0; flex: 1;">${hotel.name}</h3>
+                            <span class="rating-badge">
+                                <i class="fas fa-star" style="color: #FFD700;"></i> ${hotel.rating}
+                            </span>
+                        </div>
+                        
+                        <div class="mb-1">
+                            <span class="chip chip-primary" style="font-size: 11px;">${hotel.category}</span>
+                            <span class="chip chip-secondary" style="font-size: 11px;">
+                                <i class="fas fa-map-marker-alt"></i> ${hotel.distance}
+                            </span>
+                        </div>
+                        
+                        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin: 8px 0;">
+                            ${hotel.description}
+                        </p>
+                        
+                        <div class="info-item" style="padding: 8px 0; border-top: 1px solid var(--border-color); margin-top: 8px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <div style="font-size: 11px; color: var(--text-light);">Dirección</div>
+                                    <div style="font-size: 13px; color: var(--text-primary);">${hotel.address}</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item" style="padding: 8px 0;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <div style="font-size: 11px; color: var(--text-light);">Precio</div>
+                                    <div style="font-size: 14px; font-weight: 600; color: var(--primary-color);">${hotel.price}</div>
+                                </div>
+                                <div>
+                                    <div style="font-size: 11px; color: var(--text-light);">Teléfono</div>
+                                    <div style="font-size: 13px; color: var(--text-primary);">${hotel.phone}</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 8px;">
+                            <div style="font-size: 11px; color: var(--text-light); margin-bottom: 4px;">Amenidades:</div>
+                            <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+                                ${hotel.amenities.map(amenity => `
+                                    <span style="font-size: 11px; padding: 4px 8px; background: var(--background-dark); 
+                                                 border-radius: 12px; color: var(--text-secondary);">
+                                        <i class="fas fa-check" style="color: var(--primary-color);"></i> ${amenity}
+                                    </span>
+                                `).join('')}
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary btn-block mt-2" onclick="alert('📞 Contactar: ${hotel.phone}\\n\\nMenciona RINOMED 2026 para tarifas especiales')">
+                            <i class="fas fa-phone"></i> Contactar Hotel
+                        </button>
+                    </div>
+                `).join('')}
+                
+                <div class="card" style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%); color: white;">
+                    <h4 style="color: white; margin-bottom: 8px;"><i class="fas fa-tag"></i> Tarifas Especiales</h4>
+                    <p style="font-size: 13px; line-height: 1.5; opacity: 0.95;">
+                        Menciona el código <strong>RINOMED2026</strong> al reservar para obtener descuentos especiales en los hoteles participantes.
                     </p>
                 </div>
-            </div>
+        `;
+    },
+    
+    // Sub-vista: Qué hacer en Medellín
+    infoTourism() {
+        return `
+                <p style="color: var(--text-secondary); margin-bottom: 16px; text-align: center;">
+                    Descubre lo mejor de Medellín durante tu estadía
+                </p>
+                
+                ${DATA.activities.map(activity => `
+                    <div class="card mb-2">
+                        <div style="display: flex; gap: 12px; align-items: start;">
+                            <div style="font-size: 32px; color: var(--primary-color); min-width: 40px; text-align: center;">
+                                ${activity.icon}
+                            </div>
+                            <div style="flex: 1;">
+                                <h3 style="color: var(--primary-color); margin: 0 0 4px 0;">${activity.name}</h3>
+                                <div class="mb-1">
+                                    <span class="chip chip-secondary" style="font-size: 11px;">
+                                        <i class="fas fa-tag"></i> ${activity.category}
+                                    </span>
+                                    <span class="chip chip-primary" style="font-size: 11px;">
+                                        <i class="fas fa-clock"></i> ${activity.duration}
+                                    </span>
+                                </div>
+                                <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin: 8px 0;">
+                                    ${activity.description}
+                                </p>
+                                <div style="margin-top: 8px;">
+                                    <div style="font-size: 11px; color: var(--text-light); margin-bottom: 4px;">
+                                        <i class="fas fa-star"></i> Destacados:
+                                    </div>
+                                    <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+                                        ${activity.highlights.map(highlight => `
+                                            <span style="font-size: 11px; padding: 4px 8px; background: var(--background-dark); 
+                                                         border-radius: 12px; color: var(--text-secondary);">
+                                                ${highlight}
+                                            </span>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `).join('')}
+                
+                <div class="card" style="background: linear-gradient(135deg, #E94B8A 0%, #C07AB8 100%); color: white;">
+                    <h4 style="color: white; margin-bottom: 8px;"><i class="fas fa-lightbulb"></i> Consejo</h4>
+                    <p style="font-size: 13px; line-height: 1.5; opacity: 0.95;">
+                        El evento termina a las 18:00 ambos días. Aprovecha las mañanas antes del congreso o planea quedarte un día extra para conocer la ciudad.
+                    </p>
+                </div>
         `;
     },
     
@@ -1255,9 +1557,53 @@ function handleClearMyAgenda() {
     }
 }
 
-// Enviar pregunta (demo)
-function handleSendQuestion() {
-    alert('✅ Demo: Tu pregunta ha sido enviada.\n\nEn producción, las preguntas se envían a un moderador que las filtra antes de mostrarlas al ponente en tiempo real.');
+// Cambiar pestaña en vista Info
+function handleInfoTab(tab) {
+    AppState.infoTab = tab;
+    router.render('info');
+}
+
+// Enviar pregunta
+function handleSendQuestion(sessionId) {
+    const textarea = document.getElementById(`questionText_${sessionId}`);
+    const questionText = textarea ? textarea.value.trim() : '';
+    
+    if (!questionText) {
+        alert('⚠️ Por favor escribe una pregunta antes de enviar.');
+        return;
+    }
+    
+    if (!AppState.sessionQuestions[sessionId]) {
+        AppState.sessionQuestions[sessionId] = [];
+    }
+    
+    const now = new Date();
+    const timestamp = `${now.toLocaleDateString('es-CO')} ${now.toLocaleTimeString('es-CO', {hour: '2-digit', minute: '2-digit'})}`;
+    
+    AppState.sessionQuestions[sessionId].push({
+        text: questionText,
+        timestamp: timestamp,
+        user: AppState.currentUser.name
+    });
+    
+    // Guardar en localStorage
+    localStorage.setItem('demo_orl_questions', JSON.stringify(AppState.sessionQuestions));
+    
+    // Limpiar textarea y re-renderizar
+    if (textarea) textarea.value = '';
+    router.render(`session/${sessionId}`);
+    
+    // Mostrar confirmación
+    alert('✅ Tu pregunta ha sido enviada.\n\nEn producción, las preguntas son moderadas antes de mostrarse al ponente en tiempo real.');
+}
+
+// Eliminar pregunta
+function handleDeleteQuestion(sessionId, questionIndex) {
+    if (confirm('¿Deseas eliminar esta pregunta?')) {
+        AppState.sessionQuestions[sessionId].splice(questionIndex, 1);
+        localStorage.setItem('demo_orl_questions', JSON.stringify(AppState.sessionQuestions));
+        router.render(`session/${sessionId}`);
+    }
 }
 
 // Descargar certificado (demo)
