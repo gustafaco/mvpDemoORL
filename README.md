@@ -214,6 +214,102 @@ mvp-demo/
 - **LocalStorage API**: Persistencia de datos
 - **SVG**: Logo vectorial escalable
 
+## 🔐 Autenticación en el Formulario de Registro/Login
+
+### Flujo General
+
+La app utiliza un sistema de autenticación **simulado** (demo) sin contraseña, basado en `localStorage`. No existe un backend ni validación real de credenciales. El formulario de login actúa también como formulario de registro: el usuario ingresa su nombre y selecciona un rol, y queda "registrado" en la sesión del navegador.
+
+### 1. Formulario de Login (`views.login()` en `app.js`)
+
+El formulario se renderiza en la función `views.login()` y contiene dos campos:
+
+- **Nombre** (`#loginName`): Campo de texto libre donde el usuario escribe su nombre. Es obligatorio (`required`).
+- **Rol** (`#loginRole`): Un `<select>` con 4 opciones predefinidas: `Asistente`, `Profesor`, `Staff`, `Admin`. También es obligatorio.
+
+No hay campo de contraseña ni validación de identidad. Cualquier nombre y rol permite el acceso.
+
+```html
+<form onsubmit="handleLogin(event)">
+    <input type="text" id="loginName" placeholder="Ej: Dr. Juan Pérez" required>
+    <select id="loginRole" required>
+        <option value="">Selecciona tu rol</option>
+        <option value="Asistente">Asistente</option>
+        <option value="Profesor">Profesor</option>
+        <option value="Staff">Staff</option>
+        <option value="Admin">Admin</option>
+    </select>
+    <button type="submit">Entrar al Evento</button>
+</form>
+```
+
+### 2. Handler de Login (`handleLogin()`)
+
+Cuando el formulario se envía, se ejecuta `handleLogin(event)`:
+
+1. Se previene el comportamiento por defecto del formulario (`event.preventDefault()`).
+2. Se leen los valores de los campos `loginName` y `loginRole`.
+3. Se guarda un objeto `{ name, role }` en `AppState` y en `localStorage` (clave `demo_orl_user`) mediante `AppState.setUser()`.
+4. Se navega a la pantalla de inicio (`router.navigate('home')`).
+
+```javascript
+function handleLogin(event) {
+    event.preventDefault();
+    const name = document.getElementById('loginName').value;
+    const role = document.getElementById('loginRole').value;
+    AppState.setUser({ name, role });
+    router.navigate('home');
+}
+```
+
+### 3. Estado de la Aplicación (`AppState`)
+
+`AppState` es un objeto global que gestiona el estado de la sesión:
+
+- **`AppState.currentUser`**: Almacena `{ name, role }` del usuario logueado, o `null` si no hay sesión.
+- **`AppState.setUser(user)`**: Guarda el usuario en memoria y en `localStorage`.
+- **`AppState.logout()`**: Limpia `currentUser`, `mySessions` y remueve los datos de `localStorage`.
+- **`AppState.init()`**: Al cargar la app, intenta restaurar la sesión desde `localStorage` con `JSON.parse(localStorage.getItem('demo_orl_user'))`. Nota: no hay manejo de errores (`try/catch`) para `JSON.parse`, por lo que un valor corrupto en `localStorage` podría causar un error en tiempo de ejecución.
+
+### 4. Guardia de Rutas (Route Guard)
+
+El router implementa una verificación básica: si `AppState.currentUser` es `null` y la ruta solicitada no es `login`, redirige automáticamente a la pantalla de login:
+
+```javascript
+navigate(route, params = {}) {
+    if (!AppState.currentUser && route !== 'login') {
+        route = 'login';
+    }
+    // ...
+}
+```
+
+### 5. Persistencia de Sesión
+
+La sesión persiste entre recargas del navegador gracias a `localStorage`:
+
+- **Al hacer login**: se guarda `JSON.stringify({ name, role })` en la clave `demo_orl_user`.
+- **Al cargar la app**: `AppState.init()` lee `demo_orl_user` del `localStorage` y restaura la sesión.
+- **Al hacer logout**: se elimina `demo_orl_user` del `localStorage`.
+
+### 6. Logout y Reset
+
+- **`handleLogout()`**: Pide confirmación al usuario, limpia el estado y redirige al login.
+- **`handleReset()`**: Similar al logout, pero diseñado para resetear todos los datos del demo (usuario, sesiones favoritas, etc.).
+
+### ⚠️ Limitaciones de Seguridad (Demo)
+
+| Aspecto | Estado Actual (Demo) | Recomendación para Producción |
+|---------|---------------------|-------------------------------|
+| **Contraseña** | No existe | Implementar autenticación con contraseña hash (bcrypt) |
+| **Validación de identidad** | Ninguna | OAuth 2.0, JWT, o autenticación con correo/teléfono |
+| **Almacenamiento de sesión** | `localStorage` (texto plano) | Cookies `httpOnly` + `secure`, tokens JWT con expiración |
+| **Protección de rutas** | Solo en el cliente (JS) | Middleware de autenticación en el servidor |
+| **Roles** | Auto-seleccionados por el usuario | Asignados por el backend según permisos reales |
+| **Datos sensibles** | No aplica | Cifrado en tránsito (HTTPS) y en reposo |
+
+> **Nota**: Este es un demo/MVP. Para producción, se debe implementar un backend con autenticación real (OAuth, JWT), base de datos, y validación server-side.
+
 ## 💾 Persistencia (localStorage)
 
 El demo guarda datos en localStorage del navegador:
